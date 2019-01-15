@@ -1,3 +1,6 @@
+body {
+  height: 100%;
+}
 div.profile-container {
   width: 320px;
   height: 950px;
@@ -10,4 +13,9 @@ div.box-container {
   height: 950px;
   position: relative;
   background-color: #E0E8F2;
+}
+
+div.login-form {
+  background-image: url('./login-background.png');
+  background-size: cover;
 }
