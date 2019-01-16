@@ -1,53 +1,39 @@
 import React, { Component } from 'react'
 import '../App.css';
-import { Dropdown } from 'semantic-ui-react'
+import moment from 'moment';
 
-let monthText=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-let thisMonth = new Date()
+const date = new Date();
 
 class MonthlyTotal extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { 
-      today: thisMonth
-    }
-  } 
   
-  renderMonthlyTotal = () => {
-    let filteredTransaction = this.props.transactions.filter(transaction => transaction.date.split("-")[0] == this.state.today.getFullYear() && transaction.date.split("-")[1] == this.state.today.getMonth()+1 )
+  renderMonthlyTotal = (monthIndex) => {
+    let year = moment(date).subtract(monthIndex,'months').startOf('month').format('L').split("/")[2]
+    let month = moment(date).subtract(monthIndex,'months').startOf('month').format('L').split("/")[0]
+    let monthText = moment(date).subtract(monthIndex,'months').startOf('month').format('LL').split(" ")[0]
+    let filteredTransaction = this.props.transactions.filter(transaction => transaction.date.split("-")[0] === year && transaction.date.split("-")[1] === month )
+    console.log("inside monthly total", filteredTransaction)
     let MonthlyTotal = 0
     filteredTransaction.map(transaction => (
      MonthlyTotal += transaction.amount
     ))
-    return "$" + MonthlyTotal.toFixed(2)
+    return <div>{monthText}-{year} ${MonthlyTotal.toFixed(2)} </div>
+
   }
     
-  handleChange = (event) => {
-    //console.log(event.target.id)
-    //debugger
-    let now = new Date()
-    now.setMonth(now.getMonth()-parseInt(event.target.id))
-    this.setState({
-      today: now
-    })
-  }
 
-  //{text: monthText.slice(this.state.monthIndex-3)[0], value:-3}
   render() {
-    console.log(this.state.today)
-    //  debugger
-     
+    //console.log(moment(date).subtract(1,'months').startOf('month').format('LL')) 
+    //debugger
     return (
       <div>
         <h4>Monthly Total Expense </h4>
-        <Dropdown placeholder={"select month"} onChange={this.handleChange} value={this.state.value} selection options={[
-          {text: monthText[thisMonth.getMonth()] + thisMonth.getFullYear(), id: 0, key: 0},
-          {text: "December", id: 1, key: 1},
-          {text: "November", id: 2, key: 2},
-          {text: "October", id: 3, key: 3}
-        ]}/>
-       {this.props.transactions ? this.renderMonthlyTotal() : null }
+       {this.props.transactions.length > 0 ? 
+       <div>{this.renderMonthlyTotal(0)}
+       {this.renderMonthlyTotal(1)} 
+       {this.renderMonthlyTotal(2)} 
+       {this.renderMonthlyTotal(3)}  
+       </div> 
+       : null }
        <hr></hr>
       </div> 
     )

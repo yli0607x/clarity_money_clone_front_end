@@ -8,6 +8,7 @@ import CreditCard from './CreditCard'
 import Invite from './Invite'
 import Mortgage from './Mortgage'
 import Retirement from './Retirement'
+import HowItWorks from './HowItWorks'
 
 import { connect } from "react-redux";
 
@@ -20,26 +21,27 @@ class BoxContainer extends Component {
       
     return (
       <div >
-       
+       <Weather />
+       <CreditCard accounts={this.props.accounts}/>
        <LatestFive transactions={this.props.transactions}/>
        <MonthlyTotal transactions={this.props.transactions}/>
        <Category transactions={this.props.transactions}/>
-       <Weather />
-       <CreditCard accounts={this.props.accounts}/>
        <Invite />
        <Mortgage />
        <Retirement />
+       <HowItWorks />
       </div> 
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("inside box", state)
+  console.log("inside box state", state)
   return{
       transactions: state.transactions.transactions,
       accounts: state.transactions.accounts
   }
 }
+
 
 export default connect(mapStateToProps)(BoxContainer)

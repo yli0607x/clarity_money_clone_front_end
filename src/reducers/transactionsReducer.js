@@ -1,4 +1,4 @@
-import { FETCHING_TRANSACTIONS, FETCHED_TRANSACTIONS } from "./types";
+import { FETCHING_TRANSACTIONS, FETCHED_TRANSACTIONS, UNFETCH_TRANSACTIONS } from "./types";
 
 const initialState = {
     transactions: [], 
@@ -14,6 +14,8 @@ const transactionsReducer = (state = initialState, action) => {
 			return { ...state, loadingTransactions: true }
 		case FETCHED_TRANSACTIONS:
 			return { ...state, loadingTransactions: false, transactions: action.payload.transactions, accounts: action.payload.accounts}
+		case UNFETCH_TRANSACTIONS: //tells the app we're fetching
+			return { ...state, transactions: [], accounts: [] }
 		default:
 			return state
 	}

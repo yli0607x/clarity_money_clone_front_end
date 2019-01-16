@@ -1,4 +1,4 @@
-import {  SET_CURRENT_USER, AUTHENTICATING_USER, FAILED_LOGIN } from '../reducers/types.js';
+import {  SET_CURRENT_USER, AUTHENTICATING_USER, FAILED_LOGIN, LOGOUT_USER, UNFETCH_TRANSACTIONS} from '../reducers/types.js';
 
 export const LoginUser=(username, password) =>{
 	return (dispatch) => { //this comes from thunk technically we cant return a fn in action creators
@@ -50,3 +50,36 @@ export const fetchCurrentUser = () => {
 		  .then((JSONResponse) => dispatch({ type: SET_CURRENT_USER, payload: JSONResponse.user }))
 	}
 }
+
+export function logOut(){
+	localStorage.removeItem('jwt')
+	return {
+		type: LOGOUT_USER 
+	}
+}
+
+export function clearTransaction(){
+	return {
+		type: UNFETCH_TRANSACTIONS 
+	}
+}
+
+  export const SignUpUser = (username, password, firstname, lastname, email ) => {
+	return (dispatch) => {
+	  const data = { user: {username, password, firstname, lastname, email} }
+	    fetch(`http://localhost:4000/api/v1/users`,{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+	    .then(res => {
+		    localStorage.setItem('jwt', res.jwt)
+		    dispatch({ type: SET_CURRENT_USER, payload: res.user})
+	     })
+	    
+	}
+  }

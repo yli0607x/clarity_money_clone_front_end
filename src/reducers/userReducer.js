@@ -1,7 +1,7 @@
 import { SET_CURRENT_USER, AUTHENTICATING_USER, AUTHENTICATED_USER, FAILED_LOGIN, LOGOUT_USER } from "./types";
 
 const initialState = {
-	username: null,
+	user: null,
 	isLoggedIn: false,
 	authenticatingUser: false,
 	failedLogin: false,
@@ -24,7 +24,7 @@ const userReducer = (state = initialState, action) => {
 				authenticatingUser: false
 			}
 		case LOGOUT_USER:
-			return { ...state, initialState }
+			return { ...state, isLoggedIn: false }
 		default:
 			return state
 	}

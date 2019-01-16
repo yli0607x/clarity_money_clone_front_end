@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import '../App.css';
 import PlaidLink from 'react-plaid-link'
 import { connect } from "react-redux";
-import { fetchTransactions } from '../actions/action.js'
+import { fetchTransactions } from '../actions/action'
+import { logOut } from '../actions/userActions'
+import { clearTransaction } from '../actions/userActions'
+import { Button } from 'semantic-ui-react'
+import { withRouter} from "react-router";
+
 
 
 class ProfileContainer extends Component {
@@ -23,12 +28,21 @@ class ProfileContainer extends Component {
     console.log('link: user event', eventname, metadata);
   }
 
+  handleClick = () => {
+    this.props.history.push('/login')
+    this.props.logOut()
+    this.props.clearTransaction()
+  }
+  
+
   render() {
       //console.log("inside Profile container", this.props.Profile)
-      
+      console.log("inside profile- state transactions", this.props.transactions)
     return (
       <div >
         <h3>Name</h3>
+        Firstname: {this.props.user.user.firstname}
+        Lastname: {this.props.user.user.lastname}
         <hr></hr>
         <h3>Profile</h3>
         <hr></hr>
@@ -46,7 +60,7 @@ class ProfileContainer extends Component {
         Link Your Account
       </PlaidLink>
       <hr></hr>
-      <h3>Logout</h3>
+      <Button onClick={this.handleClick} >Logout</Button>
       </div> 
     )
   }
@@ -54,9 +68,22 @@ class ProfileContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   //console.log("inside profile", dispatch)
+  
   return{
-    fetchTransactions:(public_token, metadata)=> dispatch(fetchTransactions(public_token, metadata))
+    fetchTransactions:(public_token, metadata)=> dispatch(fetchTransactions(public_token, metadata)),
+    logOut: () => dispatch(logOut()),
+    clearTransaction: () => dispatch(clearTransaction())
   }
 }
 
-export default connect(null, mapDispatchToProps)(ProfileContainer)
+const mapStateToProps = (state) => {
+  //console.log("inside profile container", state)
+  return{
+    user: state.user,
+    transactions: state.transactions
+  }
+}
+
+
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileContainer))

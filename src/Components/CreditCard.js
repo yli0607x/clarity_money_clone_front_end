@@ -14,7 +14,7 @@ class CreditCard extends Component {
 
   render() {
      
-     console.log("inside CreditCard", this.props.accounts)
+     //console.log("inside CreditCard", this.props.accounts)
     
     return (
       <div>

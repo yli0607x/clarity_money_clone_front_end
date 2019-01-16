@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router";
 import { LoginUser } from "../actions/userActions";
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 
 class Login extends React.Component {
 
   state={
     username: "", 
-    password: ""
+    password: "",
   }
 
   handleChange = (event) => {
@@ -40,7 +40,7 @@ class Login extends React.Component {
         <Form size='large' onSubmit={this.handleLoginSubmit}>
         <Form.Input fluid icon='user' iconPosition='left' name="username" value={this.state.username} type="text" placeholder="Name" onChange={this.handleChange} />
         <Form.Input fluid icon='lock' iconPosition='left' name="password" value={this.state.password} type="password" placeholder="Password" onChange={this.handleChange}/>
-        <Button color='lightgrey' fluid size='large'>
+        <Button fluid size='large'>
               Login
         </Button>
         </Form>
@@ -55,7 +55,7 @@ class Login extends React.Component {
 
   render() {
     //console.log("inside login", this.state.user)
-    console.log("login- loggedIn", this.props.isLogggedIn)
+    console.log("login- loggedIn", this.props.isLoggedIn)
     return this.props.isLoggedIn ? <Redirect to="/main" /> : this.renderLoginForm()
   }
 }
