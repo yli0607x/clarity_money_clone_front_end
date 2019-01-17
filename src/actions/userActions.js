@@ -79,7 +79,6 @@ export function clearTransaction(){
 	    .then(res => {
 		    localStorage.setItem('jwt', res.jwt)
 		    dispatch({ type: SET_CURRENT_USER, payload: res.user})
-	     })
-	    
+	     })    
 	}
   }

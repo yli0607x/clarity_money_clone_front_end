@@ -27,7 +27,7 @@ class Login extends React.Component {
       body > div,
       body > div > div,
       body > div > div > div.login-form {
-        height: 100%;
+        height: 101%;
       }
     `}</style>
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>

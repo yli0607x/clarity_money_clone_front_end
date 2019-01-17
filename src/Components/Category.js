@@ -22,10 +22,10 @@ class Category extends Component {
     }
   } 
 
-  renderCategory = (date) => { 
+  renderCategory = (dateString) => { 
     //console.log("transactionslist", transactionsList)
-    let year = date.split("/")[2]
-    let month = date.split("/")[0]
+    let year = dateString.split("/")[2]
+    let month = dateString.split("/")[0]
     let transactionsList = this.props.transactions.filter(transaction => transaction.date.split("-")[0] === year && transaction.date.split("-")[1] === month )
     console.log(transactionsList)
     let categoryObj = {}

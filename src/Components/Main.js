@@ -10,7 +10,7 @@ class Main extends Component {
 
   render() {
 
-    console.log("inside main", this.props.isLoggedIn)
+    //console.log("inside main", this.props.isLoggedIn)
     return this.props.isLoggedIn === true ? <Fragment>
     <div className="profile-container">
       <ProfileContainer />

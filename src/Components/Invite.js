@@ -25,17 +25,15 @@ class Invite extends Component {
        <h4>Invite</h4>
        Love Clarity Money? 
        Share it with your friends! 
-       <div className="Demo__some-network">
-          <FacebookShareButton
+       <div className="network-button" >
+          <FacebookShareButton size={32} 
             url={shareUrl}
-            quote={title}
-            className="Demo__some-network__share-button">
+            quote={title}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
           <TwitterShareButton
             url={shareUrl}
-            title={title}
-            className="Demo__some-network__share-button">
+            title={title}>
             <TwitterIcon
               size={32}
               round />

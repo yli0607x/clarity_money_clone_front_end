@@ -1,7 +1,7 @@
 import React from 'react'
 import { SignUpUser } from "../actions/userActions";
 import { connect } from 'react-redux'
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment, Checkbox } from 'semantic-ui-react'
 import { Redirect } from "react-router";
 
 class SignUp extends React.Component {
@@ -38,7 +38,7 @@ class SignUp extends React.Component {
       body > div,
       body > div > div,
       body > div > div > div.login-form {
-        height: 100%;
+        height: 101%;
       }
     `}</style>
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
@@ -49,16 +49,20 @@ class SignUp extends React.Component {
         Sign Up
         </Header>
         <Form size='large' onSubmit={this.handleSubmit}>
-        <Form.Input  name="firstname" value={this.state.firstname} type="text" placeholder="First Name" onChange={this.handleChange} />
-        <Form.Input  name="lastname" value={this.state.lastname} type="text" placeholder="Last Name" onChange={this.handleChange} />
+        <Form.Group >
+        <Form.Input  width={8} name="firstname" value={this.state.firstname} type="text" placeholder="First Name" onChange={this.handleChange} />
+        <Form.Input  width={8} name="lastname" value={this.state.lastname} type="text" placeholder="Last Name" onChange={this.handleChange} />
+        </Form.Group>
         <Form.Input  name="email" value={this.state.email} type="text" placeholder="Email" onChange={this.handleChange} />
         <Form.Input  name="username" value={this.state.username} type="text" placeholder="Username" onChange={this.handleChange} />
         <Form.Input  name="password" value={this.state.password} type="password" placeholder="Password" onChange={this.handleChange}/>
         <Form.Input  name="passwordConfirmation" value={this.state.passwordConfirmation} type="password" placeholder="Confirm Password" onChange={this.handleChange}/>
+        <Form.Field control={Checkbox} label={{ children: 'I agree to the Terms and Conditions' }} />
         <Button fluid size='large'>
               SignUp
         </Button>
         </Form> 
+        Already have an account? <a href='/login'>Login</a>
         </Segment>
         </Grid.Column>
     </Grid>   
@@ -67,7 +71,7 @@ class SignUp extends React.Component {
   }
 
   render(){
-    //console.log("sign-up", this.state.password)
+    //console.log("sign-up", this.state.username)
     return this.state.signedUp ? <Redirect to="/login" /> : <div>{this.renderSignUpForm()}</div>
   }
 }

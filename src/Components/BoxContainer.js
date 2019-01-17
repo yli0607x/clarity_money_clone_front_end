@@ -9,6 +9,7 @@ import Invite from './Invite'
 import Mortgage from './Mortgage'
 import Retirement from './Retirement'
 import HowItWorks from './HowItWorks'
+import RecurringExpense from './RecurringExpense'
 
 import { connect } from "react-redux";
 
@@ -18,25 +19,31 @@ class BoxContainer extends Component {
 
 
   render() {
-      
-    return (
+    return this.props.transactions.length > 0 ?
       <div >
        <Weather />
        <CreditCard accounts={this.props.accounts}/>
        <LatestFive transactions={this.props.transactions}/>
        <MonthlyTotal transactions={this.props.transactions}/>
        <Category transactions={this.props.transactions}/>
-       <Invite />
+       <RecurringExpense transactions={this.props.transactions}/>
        <Mortgage />
        <Retirement />
+       <Invite />
        <HowItWorks />
-      </div> 
-    )
+      </div> :
+      <div >
+      <Weather />
+      <Mortgage />
+      <Retirement />
+      <Invite />
+      <HowItWorks />
+      </div>
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("inside box state", state)
+  console.log("inside box transaction present", state.transactions.transactions.length)
   return{
       transactions: state.transactions.transactions,
       accounts: state.transactions.accounts
