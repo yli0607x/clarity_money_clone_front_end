@@ -16,8 +16,6 @@ class Weather extends Component {
     }
   }
 
-  
-
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -69,10 +67,10 @@ class Weather extends Component {
      //console.log("inside Weather", this.props.transactions)
   
     return (
-      <div>
+      <div className="weather">
        <h4>Weather</h4>
        {this.state.isLoaded ? this.displayWeather() : null }
-       <hr></hr>
+       
       </div> 
     )
   }

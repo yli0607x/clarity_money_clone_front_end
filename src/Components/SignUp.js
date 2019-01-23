@@ -13,6 +13,7 @@ class SignUp extends React.Component {
     firstname: '',
     lastname: '',
     email:'',
+    avatar: '',
     signedUp: false, 
   }
 
@@ -28,7 +29,7 @@ class SignUp extends React.Component {
       alert(`password don't match, try again`)
     } else{
       this.setState({ signedUp: true })
-      this.props.SignUpUser(this.state.username, this.state.password, this.state.firstname, this.state.lastname, this.state.email )
+      this.props.SignUpUser(this.state.username, this.state.password, this.state.firstname, this.state.lastname, this.state.email, this.state.avatar )
     }
   }
 
@@ -54,6 +55,7 @@ class SignUp extends React.Component {
         <Form.Input  width={8} name="lastname" value={this.state.lastname} type="text" placeholder="Last Name" onChange={this.handleChange} />
         </Form.Group>
         <Form.Input  name="email" value={this.state.email} type="text" placeholder="Email" onChange={this.handleChange} />
+        <Form.Input  name="avatar" value={this.state.avatar} type="text" placeholder="Profile Picture Link" onChange={this.handleChange} />
         <Form.Input  name="username" value={this.state.username} type="text" placeholder="Username" onChange={this.handleChange} />
         <Form.Input  name="password" value={this.state.password} type="password" placeholder="Password" onChange={this.handleChange}/>
         <Form.Input  name="passwordConfirmation" value={this.state.passwordConfirmation} type="password" placeholder="Confirm Password" onChange={this.handleChange}/>

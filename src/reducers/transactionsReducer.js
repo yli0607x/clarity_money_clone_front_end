@@ -13,7 +13,7 @@ const transactionsReducer = (state = initialState, action) => {
 		case FETCHING_TRANSACTIONS: //tells the app we're fetching
 			return { ...state, loadingTransactions: true }
 		case FETCHED_TRANSACTIONS:
-			return { ...state, loadingTransactions: false, transactions: action.payload.transactions, accounts: action.payload.accounts}
+			return { ...state, loadingTransactions: false, transactions: action.payload.transactions, accounts: action.payload.accounts, oneWeek: action.payload.oneWeek}
 		case UNFETCH_TRANSACTIONS: //tells the app we're fetching
 			return { ...state, transactions: [], accounts: [] }
 		default:

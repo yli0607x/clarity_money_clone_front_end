@@ -66,7 +66,7 @@ class RecurringExpense extends Component {
     let lastYear = oneMonthAgo.split("/")[2]
     let lastMonth = oneMonthAgo.split("/")[0]
     let lastMonthList = this.props.transactions.filter(transaction => transaction.date.split("-")[0] === lastYear && transaction.date.split("-")[1] === lastMonth )
-    debugger
+    //debugger
   
   
   }
@@ -92,14 +92,14 @@ class RecurringExpense extends Component {
     // console.log("recurring", this.MonthTrasactions(thisMonth))
     // console.log("recurring last month", this.MonthTrasactions(oneMonthAgo))
     return (
-      <div >
+      <div className="recurringexpense" >
        <h4>Recurring Expense</h4>
        {this.parseDate(thisMonth)}
        {this.parseDate(oneMonthAgo)}
        {this.parseDate(twoMonthAgo)}
        {this.parseDate(threeMonthAgo)}
        {this.MonthTrasactions()}
-       <hr></hr>
+    
       </div> 
     )
   }

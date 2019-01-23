@@ -64,9 +64,9 @@ export function clearTransaction(){
 	}
 }
 
-  export const SignUpUser = (username, password, firstname, lastname, email ) => {
+  export const SignUpUser = (username, password, firstname, lastname, email, avatar) => {
 	return (dispatch) => {
-	  const data = { user: {username, password, firstname, lastname, email} }
+	  const data = { user: {username, password, firstname, lastname, email, avatar} }
 	    fetch(`http://localhost:4000/api/v1/users`,{
 				method: 'POST',
 				headers: {

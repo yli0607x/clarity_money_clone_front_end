@@ -21,7 +21,7 @@ class Invite extends Component {
      const shareUrl = 'https://claritymoney.com/';
      const title = "I've been using Clarity Money and it's incredible. It's like having someone watch your back and it's free. Sign up now!"
     return (
-      <div >
+      <div className="invite">
        <h4>Invite</h4>
        Love Clarity Money? 
        Share it with your friends! 
@@ -59,7 +59,7 @@ class Invite extends Component {
           </EmailShareButton>
         </div>
         
-       <hr></hr>
+      
       </div> 
     )
   }

@@ -5,66 +5,58 @@ import { connect } from "react-redux";
 import { fetchTransactions } from '../actions/action'
 import { logOut } from '../actions/userActions'
 import { clearTransaction } from '../actions/userActions'
-import { Button } from 'semantic-ui-react'
+import Button from '@material-ui/core/Button';
 import { withRouter} from "react-router";
+import ShowProfile from './ShowProfile'
+import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import ShowTransactions from './ShowTransactions'
 
+const styles = theme => ({
+  bigAvatar: {
+    margin: 70,
+    width: 170,
+    height: 170,
+  },
+  h3: {
+    color: 'white', 
+  },
+});
 
 
 class ProfileContainer extends Component {
  
-   
-  handleOnSuccess = (public_token, metadata) => {
-    this.props.fetchTransactions(public_token, metadata)
-  }
-
-  handleOnExit(error, metadata) {
-    console.log('link: user exited');
-    console.log(error, metadata);
-  }
-  handleOnLoad() {
-    console.log('link: loaded');
-  }
-  handleOnEvent(eventname, metadata) {
-    console.log('link: user event', eventname, metadata);
-  }
 
   handleClick = () => {
-    this.props.history.push('/login')
+    this.props.history.push('/')
     this.props.logOut()
     this.props.clearTransaction()
   }
   
 
   render() {
-      //console.log("inside Profile container", this.props.Profile)
-      console.log("inside profile- state transactions", this.props.transactions)
+      console.log("inside Profile container", this.props.transactions)
+      //console.log("inside profile- state transactions", this.props.transactions)
+      const { classes } = this.props;
     return (
       <div >
-        <h3>Name</h3>
-        Firstname: {this.props.user.user.firstname}
-        Lastname: {this.props.user.user.lastname}
+        <Avatar alt="your head goes here" src={this.props.user.user.avatar} className={classes.bigAvatar} />
+        <h3 className={classes.h3}  >Hello {this.props.user.user.firstname}</h3>
         <hr></hr>
-        <h3>Profile</h3>
+        <ShowProfile user={this.props.user.user} />
         <hr></hr>
-        <PlaidLink
-        clientName="Plaid Client"
-        env="sandbox"
-        product={['auth', 'transactions']}
-        publicKey="b1e735eeb3e7304310b6da558410ce"
-        className="some-class-name"
-        apiVersion="v2"
-        onSuccess={this.handleOnSuccess}
-        onExit={this.handleOnExit}
-        onEvent={this.handleOnEvent}
-        onLoad={this.handleOnLoad}>
-        Link Your Account
-      </PlaidLink>
-      <hr></hr>
-      <Button onClick={this.handleClick} >Logout</Button>
+        <ShowTransactions transactions={this.props.transactions} nochange={this.props.transactions} />
+        <hr></hr>
+        <Button variant="contained" style={{marginTop:"49vh"}}onClick={this.handleClick}> Logout</Button>
       </div> 
     )
   }
 }
+
+ProfileContainer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => {
   //console.log("inside profile", dispatch)
@@ -86,4 +78,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileContainer))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ProfileContainer)))

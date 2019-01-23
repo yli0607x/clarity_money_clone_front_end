@@ -45,7 +45,7 @@ class Login extends React.Component {
         </Button>
         </Form>
        
-          New to us? <a href='/signup'>Sign Up</a>
+          New to us? <a href='/register'>Sign Up</a>
       
         </Segment>
         </Grid.Column>
@@ -56,7 +56,7 @@ class Login extends React.Component {
   render() {
     //console.log("inside login", this.state.user)
     console.log("login- loggedIn", this.props.isLoggedIn)
-    return this.props.isLoggedIn ? <Redirect to="/main" /> : this.renderLoginForm()
+    return this.props.isLoggedIn ? <Redirect to="/dashboard" /> : this.renderLoginForm()
   }
 }
 

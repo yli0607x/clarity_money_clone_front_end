@@ -10,12 +10,12 @@ class HowItWorks extends Component {
      //console.log("inside HowItWorks", this.props.transactions)
     
     return (
-      <div >
+      <div className="howitworks" >
        <h4>How It Works</h4>
        We deliver insights that can help you take control of your finance.
        <br></br>
        We do this by analyzing your spending patterns.
-       <hr></hr>
+       
       </div> 
     )
   }

@@ -17,7 +17,7 @@ export const fetchTransactions = (public_token, metadata) => {
             })
         }) 
         .then(r => r.json())
-        .then((data) => dispatch({ type: FETCHED_TRANSACTIONS, payload: {accounts: data.data.accounts, transactions:data.data.transactions} }))	
+        .then((data) => dispatch({ type: FETCHED_TRANSACTIONS, payload: {accounts: data.data.accounts, transactions:data.data.transactions, oneWeek: data.data1.transactions} }))	
 	}
 }
 

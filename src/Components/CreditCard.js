@@ -13,14 +13,12 @@ class CreditCard extends Component {
   }
 
   render() {
-     
+     //console.log("fidelity! inside credit card", this.props.accounts)
      //console.log("inside CreditCard", this.props.accounts)
-    
     return (
-      <div>
+      <div className="creditcard">
        <h4>CreditCard</h4>
        {this.renderOneAccount()}
-       <hr></hr>
       </div> 
     )
   }

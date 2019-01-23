@@ -5,12 +5,12 @@ import BoxContainer from './BoxContainer';
 import { connect } from "react-redux";
 
 
-class Main extends Component {
+class Dashboard extends Component {
 
 
   render() {
 
-    //console.log("inside main", this.props.isLoggedIn)
+    //console.log("inside Dashboard", this.props.isLoggedIn)
     return this.props.isLoggedIn === true ? <Fragment>
     <div className="profile-container">
       <ProfileContainer />
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Main)
+export default connect(mapStateToProps)(Dashboard)

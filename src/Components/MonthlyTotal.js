@@ -11,7 +11,7 @@ class MonthlyTotal extends Component {
     let month = moment(date).subtract(monthIndex,'months').startOf('month').format('L').split("/")[0]
     let monthText = moment(date).subtract(monthIndex,'months').startOf('month').format('LL').split(" ")[0]
     let filteredTransaction = this.props.transactions.filter(transaction => transaction.date.split("-")[0] === year && transaction.date.split("-")[1] === month )
-    console.log("inside monthly total", filteredTransaction)
+    //console.log("inside monthly total", filteredTransaction)
     let MonthlyTotal = 0
     filteredTransaction.map(transaction => (
      MonthlyTotal += transaction.amount
@@ -25,7 +25,7 @@ class MonthlyTotal extends Component {
     //console.log(moment(date).subtract(1,'months').startOf('month').format('LL')) 
     //debugger
     return (
-      <div>
+      <div className="monthlytotal">
         <h4>Monthly Total Expense </h4>
        {this.props.transactions.length > 0 ? 
        <div>{this.renderMonthlyTotal(0)}
@@ -34,7 +34,7 @@ class MonthlyTotal extends Component {
        {this.renderMonthlyTotal(3)}  
        </div> 
        : null }
-       <hr></hr>
+    
       </div> 
     )
   }

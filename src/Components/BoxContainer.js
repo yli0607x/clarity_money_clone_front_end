@@ -10,6 +10,9 @@ import Mortgage from './Mortgage'
 import Retirement from './Retirement'
 import HowItWorks from './HowItWorks'
 import RecurringExpense from './RecurringExpense'
+import Test from './test'
+import OneWeekExpense from './OneWeekExpense'
+import LinkAccount from './LinkAccount'
 
 import { connect } from "react-redux";
 
@@ -19,34 +22,38 @@ class BoxContainer extends Component {
 
 
   render() {
-    return this.props.transactions.length > 0 ?
-      <div >
-       <Weather />
-       <CreditCard accounts={this.props.accounts}/>
-       <LatestFive transactions={this.props.transactions}/>
-       <MonthlyTotal transactions={this.props.transactions}/>
-       <Category transactions={this.props.transactions}/>
-       <RecurringExpense transactions={this.props.transactions}/>
-       <Mortgage />
-       <Retirement />
-       <Invite />
-       <HowItWorks />
+    return this.props.transactions.length > 0 || this.props.accounts.length > 0 ?
+      <div className="main">
+       <div className="section"><Weather /></div>
+       <div className="section"><OneWeekExpense oneWeek={this.props.oneWeek}/></div>
+       <div className="section"><CreditCard accounts={this.props.accounts}/></div>
+       <div className="section"><LatestFive transactions={this.props.transactions}/></div>
+       <div className="section"><MonthlyTotal transactions={this.props.transactions}/></div>
+       <div className="section"><Category transactions={this.props.transactions}/></div>
+       <div className="section"><RecurringExpense transactions={this.props.transactions}/></div>
+       <div className="section"><Mortgage /></div>
+       <div className="section"><Retirement /></div>
+       <div className="section"><LinkAccount /></div>
+       <div className="section"><Invite /></div>
+       <div className="section"><HowItWorks /></div>
       </div> :
-      <div >
-      <Weather />
-      <Mortgage />
-      <Retirement />
-      <Invite />
-      <HowItWorks />
+      <div className="main">
+      <div className="section"><Weather /></div>
+      <div className="section"><LinkAccount /></div>
+      <div className="section"><Mortgage /></div>
+      <div className="section"><Retirement /></div>
+      <div className="section"><Invite /></div>
+      <div className="section"><HowItWorks /></div>
       </div>
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log("inside box transaction present", state.transactions.transactions.length)
+ console.log("inside box what is state", state)
   return{
       transactions: state.transactions.transactions,
-      accounts: state.transactions.accounts
+      accounts: state.transactions.accounts,
+      oneWeek: state.transactions.oneWeek
   }
 }
 
