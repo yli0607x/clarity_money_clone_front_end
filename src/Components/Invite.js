@@ -22,22 +22,25 @@ class Invite extends Component {
      const title = "I've been using Clarity Money and it's incredible. It's like having someone watch your back and it's free. Sign up now!"
     return (
       <div className="invite">
-       <h4>Invite</h4>
-       Love Clarity Money? 
-       Share it with your friends! 
-       <div className="network-button" >
+       <img alt="invite" className="whitepiggy" src="./images/piggywhite.png"/>
+       <h5>Love Clarity Money? <br></br>Share it with your friends!</h5>
+          <div className="facebook">
           <FacebookShareButton size={32} 
             url={shareUrl}
             quote={title}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
-          <TwitterShareButton
+          </div>
+          <div className="twitter">
+            <TwitterShareButton
             url={shareUrl}
             title={title}>
             <TwitterIcon
               size={32}
               round />
-          </TwitterShareButton>
+            </TwitterShareButton>
+          </div>  
+          <div className="linkedin">
           <LinkedinShareButton
             url={shareUrl}
             title={title}
@@ -48,6 +51,8 @@ class Invite extends Component {
               size={32}
               round />
           </LinkedinShareButton>
+          </div>
+          <div className="email">
           <EmailShareButton
             url={shareUrl}
             subject="Check out Clarity Money"
@@ -57,9 +62,8 @@ class Invite extends Component {
               size={32}
               round />
           </EmailShareButton>
-        </div>
-        
-      
+          </div>
+         <br></br>
       </div> 
     )
   }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import '../App.css';
 import moment from 'moment';
+import { connect } from "react-redux";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 //let latitude = navigator.geolocation.getCurrentPosition(position=>(return position.coords.latitude)
-//const quote = ["Keep your word impeccable.",]
+const quotes = ["Keep your word impeccable.", "Probability is the very guide of life.", "Every step you take, we're here to help!","We love helping you!", "When you can’t find the sunshine, be the sunshine.", "The grass is greener where you water it.", "Attitude is a little thing that makes a big difference.", "Begin anywhere. – John Cage", "If you don’t like the road you’re walking, start paving another one. – Dolly Parton"]
 class Weather extends Component {
  
   constructor(props) {
@@ -35,11 +37,12 @@ class Weather extends Component {
     const icon_URL = "./images/icons/" + this.state.weather.currently.icon + ".svg"
     const date = new Date()
     let time = moment(date).format('LLLL');
+    let item = quotes[Math.floor(Math.random()*quotes.length)];
     return <div>
-      {time}
-      <br></br>
       <img height="30" src={icon_URL} alt="icon"/>
-      {this.state.weather.currently.temperature}&deg;
+      <div className="temperature">{(this.state.weather.currently.temperature).toFixed(0)}&deg;F</div>
+      <div className="quote">Hello {this.props.user.user.firstname},<br></br>{item}</div>
+      <div className="time">{time}</div>
     </div>
   }
 
@@ -68,12 +71,18 @@ class Weather extends Component {
   
     return (
       <div className="weather">
-       <h4>Weather</h4>
-       {this.state.isLoaded ? this.displayWeather() : null }
+       {this.state.isLoaded ? this.displayWeather() : <CircularProgress /> }
        
       </div> 
     )
   }
 }
 
-export default Weather
+const mapStateToProps = (state) => {
+  //console.log("inside profile container", state)
+  return{
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Weather)

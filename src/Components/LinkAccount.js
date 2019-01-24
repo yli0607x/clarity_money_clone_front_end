@@ -30,7 +30,7 @@ class LinkAccount extends Component {
       <div className="linkaccount">
         <h4>Connect Your Accounts</h4>
         <hr></hr>
-        <img src={'https://static.claritymoney.com/images/insights/connect_account.png'} alt="Connet Your Bank Accounts" className="bankimg"/>
+        <img style={{margin:'10'}}src={'https://static.claritymoney.com/images/insights/connect_account.png'} alt="Connet Your Bank Accounts" className="bankimg"/>
         <p>Link your bank account now! We offer insights that help you better manage your finances.</p>
        <PlaidLink
         clientName="Clarity Money"

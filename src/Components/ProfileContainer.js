@@ -21,6 +21,7 @@ const styles = theme => ({
   },
   h3: {
     color: 'white', 
+    textAlign: 'center',
   },
 });
 
@@ -42,13 +43,11 @@ class ProfileContainer extends Component {
     return (
       <div >
         <Avatar alt="your head goes here" src={this.props.user.user.avatar} className={classes.bigAvatar} />
-        <h3 className={classes.h3}  >Hello {this.props.user.user.firstname}</h3>
-        <hr></hr>
-        <ShowProfile user={this.props.user.user} />
+        <h3 className={classes.h3}  >Hello {this.props.user.user.firstname}!</h3>
         <hr></hr>
         <ShowTransactions transactions={this.props.transactions} nochange={this.props.transactions} />
-        <hr></hr>
-        <Button variant="contained" style={{marginTop:"49vh"}}onClick={this.handleClick}> Logout</Button>
+        <ShowProfile user={this.props.user.user} />
+        <Button variant="contained" style={{marginTop:"40vh", marginLeft: "1vh"}}onClick={this.handleClick}> Logout</Button>
       </div> 
     )
   }

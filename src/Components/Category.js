@@ -80,20 +80,20 @@ class Category extends Component {
       datasets: [{
         data: categoryAmount,
         backgroundColor: [
-          '#c67a75',
-          '#d6948f',
-          '#e5afac',
-          '#e5afac',
-          '#e5afac',
-          '#e5afac'
+          '#fc7d79',
+          '#f77f5d',
+          '#f48c58',
+          '#F2A45C',
+          '#f9a052',
+          '#ffc677'
           ],
         hoverBackgroundColor: [
-          '#E68D7C',
-          '#E68D7C',
-          '#E68D7C',
-          '#E68D7C',
-          '#E68D7C',
-          '#E68D7C',
+          '#ffdca4',
+          '#ffdca4',
+          '#ffdca4',
+          '#ffdca4',
+          '#ffdca4',
+          '#ffdca4',
           ],
         borderWidth: 0.1  
       }],
@@ -109,12 +109,10 @@ class Category extends Component {
 //{this.props.transactions.length > 0 ? this.renderCategory(this.state.today) : null }
     return (
       <div className="category">
-       <h4>Category</h4>
-       <FormControl className={classes.formControl}>
+       <FormControl id="categorydropdown">
           <TextField
             select
-            label="Select Month"
-            style = {{width: 150, height: 100}}
+            style = {{width: 150, height: 40}}
             value={this.state.number}
             onChange={this.handleChange}
             margin="normal"
@@ -129,7 +127,8 @@ class Category extends Component {
           
         </FormControl>
       <Doughnut data={data} />
-      
+      <br></br>
+      <br></br>
       </div> 
     )
   }

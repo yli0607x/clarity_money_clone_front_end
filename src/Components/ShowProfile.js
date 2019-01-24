@@ -77,8 +77,8 @@ class SimpleModal extends React.Component {
     const { firstName, lastName, email, username, avatar } = this.state;
     //console.log(this.props.user.avatar)
     return (
-      <div>
-        <h3 style={{color:"white"}} onClick={this.handleOpen}>My Profile</h3>
+      <div className="showprofile">
+        <div className="myprofile" onClick={this.handleOpen}>Profile</div>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"

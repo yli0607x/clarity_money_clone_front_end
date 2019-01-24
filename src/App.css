@@ -13,11 +13,12 @@ div.box-container {
   height: 100%;
   min-height: 100vh;
   position: relative;
-  background-color: #E0E8F2;
+  background-color: #DEE8F3;
 }
 
 div.login-form {
-  background-image: url('./login-background.png');
+  /* background-image: url('./login-background.png'); */
+  background: linear-gradient(180deg, rgb(43, 204, 248), rgb(69, 219, 202));
   background-repeat:no-repeat;
   background-size:cover;
   -webkit-background-size: cover;
@@ -65,8 +66,58 @@ div.weather {
   border-radius: 1rem;
 }
 
+div.temperature {
+  color: white;
+  font-size: 1.4rem;
+  margin-left: 40px;
+  margin-top: -29px;
+}
+
+div.time {
+  color: white;
+  font-size: 1.3rem;
+  margin-top: 80px;
+}
+
+div.quote {
+  color: white;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div.invite {
+  background-color: #22CFA4;
+  padding: 10px;
+  border-radius: 1rem;
+}
+
+div.invite h5 {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+div.mortgage, div.retirement, div.monthlytotal{
+  background-color: #FFFFFF;
+  padding:10px;
+  border-radius: 1rem;
+  color: #003268;
+}
+
+div.mortgage h4, div.retirement h4, div.monthlytotal h4{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+div.monthlytotal h4 {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 div.linkaccount {
-  background-color: white;
+  background-color: #FFFFFF;
   padding:10px;
   border-radius: 1rem;
   color: #4F6E8D;
@@ -74,7 +125,7 @@ div.linkaccount {
 
 div.linkaccount h4 {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 div.linkaccount p {
@@ -85,13 +136,26 @@ div.linkaccount p {
 }
 
 div.category {
-  background: linear-gradient(180deg, rgb(252, 244, 129), rgb(252, 149, 168));
-  background-size: 400% 400%;
+  background-color: white; 
+}
 
-  -webkit-animation: AnimationName 48s ease infinite;
-  -moz-animation: AnimationName 48s ease infinite;
-  animation: AnimationName 48s ease infinite;
+img.houseimg, img.whitepiggy {
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top:20px;
+}
 
+div.mortgage-result {
+  color: #003268;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+div.mortgage-result h4 {
+  font-size: 1.4rem;
 }
 
 
@@ -118,7 +182,9 @@ img.bankimg {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 50%;
+  width: 70%;
+  margin-top:30px;
+  margin-bottom: 25px;
 }
 /* 
 background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); */
@@ -136,10 +202,134 @@ button.some-class-name {
   outline: none;
   background-color: rgb(103, 208, 174) !important;
   color: white !important;
-  border: 2px solid rgb(241, 241, 241);
-  border-radius: 0.5rem;
-  width: 200px;
+  border: none !important ;
+  border-radius: 0.5rem !important; 
+  width: 220px;
+  height: 45px;
+  font-size: 1.3rem;
   margin-left: auto;
   margin-right: auto;
   display: block;
 } 
+
+#bluebutton {
+  margin-top: 10px;
+  margin-botton: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: #003268;
+  color: white; 
+  height: 45px;
+  width: 220px;
+  font-size: 1rem;
+  border-radius: 0.5rem !important; 
+}
+
+div.carousel-item active {
+  background-color: #003E7A;
+  height: 400px;
+}
+
+div.facebook {
+  margin-top: 30px;
+  margin-left: 150px;
+}
+
+div.twitter {
+  margin-top: -32px;
+  margin-left: 200px;
+}
+
+div.linkedin {
+  margin-top: -32px;
+  margin-left: 250px;
+}
+
+div.email {
+  margin-top: -32px;
+  margin-left: 300px;
+}
+
+div.oneweekexpense {
+  background-color: #FFFFFF;
+  padding:10px;
+  border-radius: 1rem;
+}
+
+div.oneweektext {
+  color: #003268;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+div.amount {
+  color: #22CFA4;
+  font-size: 1.8rem;
+
+}
+
+.oneweekimg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top:20px;
+  height: 120px;
+}
+
+div.oneweekminitext {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: #4F6E8D;
+}
+
+div.creditcard {
+  background-color: #FFFFFF;
+  padding:10px;
+  border-radius: 1rem;
+}
+
+div.creditcard h4 {
+  color: #4F6E8D;
+  text-align: center;
+}
+
+div.accountname {
+  color: #4F6E8D;
+  font-size: 1.1rem;
+  margin-left: 10px;
+
+}
+
+div.accountbalance {
+  color: #4F6E8D;
+  text-align: right;
+  font-size: 1.1rem;
+  margin-top: -22px;
+  margin-right: 10px;
+}
+
+#categorydropdown {
+  margin-left: 40px;
+  color: white;
+}
+
+div.showprofile h3{
+  color: white;
+  text-align: center;
+  height: 30px;
+}
+
+
+div.showprofile :hover {background-color:#22CFA4;}
+div.showtransactions :hover {background-color:#22CFA4;}
+
+div.myprofile {
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  height: 80px;
+  margin-top: 10px;
+  padding-top: 20px;
+}

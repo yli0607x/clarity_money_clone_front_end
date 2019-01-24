@@ -4,6 +4,7 @@ import { withRouter, Redirect } from "react-router";
 import { LoginUser } from "../actions/userActions";
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 
+
 class Login extends React.Component {
 
   state={
@@ -37,6 +38,7 @@ class Login extends React.Component {
         <Header as='h1' color='grey' textAlign='center'>
         Sign in
         </Header>
+        {this.props.failedLogin ? <p>{this.props.error}</p> : null}
         <Form size='large' onSubmit={this.handleLoginSubmit}>
         <Form.Input fluid icon='user' iconPosition='left' name="username" value={this.state.username} type="text" placeholder="Name" onChange={this.handleChange} />
         <Form.Input fluid icon='lock' iconPosition='left' name="password" value={this.state.password} type="password" placeholder="Password" onChange={this.handleChange}/>

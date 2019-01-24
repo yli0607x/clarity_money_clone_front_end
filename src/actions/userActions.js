@@ -58,6 +58,7 @@ export function logOut(){
 	}
 }
 
+
 export function clearTransaction(){
 	return {
 		type: UNFETCH_TRANSACTIONS 

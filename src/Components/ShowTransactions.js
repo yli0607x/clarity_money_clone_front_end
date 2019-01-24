@@ -143,8 +143,8 @@ class ShowTransactions extends React.Component {
     console.log("inside transactions sort by", this.state.sortby)
     console.log("inside showtransaction, what is first transaction", this.props.transactions.transactions[0])
     return (
-      <div>
-        <h3 style={{color:"white"}} onClick={this.handleClickOpen('paper')}>Transactions</h3>
+      <div className="showtransactions">
+        <div className="myprofile" style={{color:"white", textAlign:"center"}} onClick={this.handleClickOpen('paper')}>Transactions</div>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
