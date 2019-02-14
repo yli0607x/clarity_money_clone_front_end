@@ -3,7 +3,6 @@ import '../App.css';
 import PlaidLink from 'react-plaid-link'
 import { connect } from "react-redux";
 import { fetchTransactions } from '../actions/action'
-import Button from '@material-ui/core/Button';
 
 class LinkAccount extends Component {
  

@@ -60,7 +60,7 @@ class Category extends Component {
 
   
   render() {
-    const { classes } = this.props;
+    //const { classes } = this.props;
     let year = this.state.today.split("/")[2]
     let month = this.state.today.split("/")[0]
     let transactionsList = this.props.transactions.filter(transaction => transaction.date.split("-")[0] === year && transaction.date.split("-")[1] === month )

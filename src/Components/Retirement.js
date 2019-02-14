@@ -1,9 +1,8 @@
-import React, { Component, Fragment} from 'react'
+import React from 'react'
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -90,6 +89,7 @@ class FormattedInputs extends React.Component {
     incomeLater: "", 
     investmentReturn: 2,
     ageAfterRetire: 80,
+    open: false,
   };
 
   handleClickOpen = () => {
@@ -119,7 +119,7 @@ class FormattedInputs extends React.Component {
   render() {
     //console.log(this.state.term)
     const { classes } = this.props;
-    const { ageNow , ageRetire, incomeNow, incomeLater, investmentReturn } = this.state;
+    const { ageNow , ageRetire, incomeNow, incomeLater} = this.state;
     let monthlyContribution = 0
     let apr = parseInt(this.state.investmentReturn)/100
     let last_apr = 1
@@ -226,7 +226,7 @@ class FormattedInputs extends React.Component {
                         label="Expected Annual Income After Retired"
                         //helperText="during retirement"
                         value={incomeLater}
-                        style = {{width: 160}}
+                        style = {{width: 250}}
                         onChange={this.handleChange('incomeLater')}
                         id="formatted-numberformat-input"
                         InputProps={{

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import '../App.css';
-import PlaidLink from 'react-plaid-link'
 import { connect } from "react-redux";
 import { fetchTransactions } from '../actions/action'
 import { logOut } from '../actions/userActions'

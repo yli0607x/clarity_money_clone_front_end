@@ -10,11 +10,8 @@ import ShowTransactionsList from './ShowTransactionsList'
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
-
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 
 
@@ -140,8 +137,8 @@ class ShowTransactions extends React.Component {
   render() {
     const { classes } = this.props;
     // const { } = this.state;
-    console.log("inside transactions sort by", this.state.sortby)
-    console.log("inside showtransaction, what is first transaction", this.props.transactions.transactions[0])
+    //console.log("inside transactions sort by", this.state.sortby)
+    //console.log("inside showtransaction, what is first transaction", this.props.transactions.transactions[0])
     return (
       <div className="showtransactions">
         <div className="myprofile" style={{color:"white", textAlign:"center"}} onClick={this.handleClickOpen('paper')}>Transactions</div>

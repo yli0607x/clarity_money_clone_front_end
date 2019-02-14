@@ -1,4 +1,4 @@
-import React, { Component, Fragment} from 'react'
+import React from 'react'
 import NumberFormat from 'react-number-format';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -183,7 +183,7 @@ class FormattedInputs extends React.Component {
                     label="Term"
                     style = {{width: 90, height:50}}
                     className={classes.formControl}
-                    value={this.state.term}
+                    value={term}
                     onChange={this.handleChange('term')}
                     margin="normal"
                     SelectProps={{

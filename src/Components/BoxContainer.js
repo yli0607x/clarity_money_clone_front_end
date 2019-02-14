@@ -9,11 +9,11 @@ import Invite from './Invite'
 import Mortgage from './Mortgage'
 import Retirement from './Retirement'
 import HowItWorks from './HowItWorks'
-import RecurringExpense from './RecurringExpense'
-import Test from './test'
+// import RecurringExpense from './RecurringExpense'
+// import Test from './test'
 import OneWeekExpense from './OneWeekExpense'
 import LinkAccount from './LinkAccount'
-import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { connect } from "react-redux";
 
@@ -22,22 +22,16 @@ class BoxContainer extends Component {
 
   renderLoader = () => {
     if(this.props.loadingTransactions === true) {
-      return <Segment>
-      <Dimmer active>
-        <Loader>Loading</Loader>
-      </Dimmer>
-
-      <Image src='/images/wireframe/short-paragraph.png' />
-    </Segment>
+      return <div><CircularProgress /></div>
     } 
   }
 
 
  // <div className="section"><RecurringExpense transactions={this.props.transactions}/></div>
   render() {
+    console.log("insidebox is it loading", this.props.loadingTransactions)
     return this.props.transactions.length > 0 || this.props.accounts.length > 0 ?
       <div className="main">
-       {this.renderLoader()}
        <div className="section"><CreditCard accounts={this.props.accounts}/></div>
        <div className="section"><Category transactions={this.props.transactions}/></div>
        <div className="section"><LatestFive transactions={this.props.transactions}/></div>
@@ -64,7 +58,7 @@ const mapStateToProps = (state) => {
       transactions: state.transactions.transactions,
       accounts: state.transactions.accounts,
       oneWeek: state.transactions.oneWeek,
-      loadingTransactions: state.loadingTransactions
+      loadingTransactions: state.transactions.loadingTransactions
   }
 }
 
