@@ -6,7 +6,22 @@ This is the repo for the Flatiron School Mod 5 Project. Clarity Money Clone is a
 ![](clarity_money_1.gif)
 
 ## Key Functionality 
-- ![](account_detail.png)
+- signup, login, logout
+- display all account balance
+- display latest 5 transactions
+- display total spending of last week
+- display past 6 months total spending
+- display last 4 months spending by category
+![](category.gif)
+- mortgage calculator
+![](mortgage_calculator.png)
+- retirement calculator
+![](retirement_calculator.png)
+- search transactions by name or category
+![](search.gif)
+
+## Plaid API 
+Currently using the Plaid API Sandbox mode. Only one credential(username:user_good password: pass_good) is valid in the Sandbox and no interaction with the financial institutions occurs. If you wish to use real bank account, read more about it here https://plaid.com/docs/. 
 
 ## Install Instructions
 
