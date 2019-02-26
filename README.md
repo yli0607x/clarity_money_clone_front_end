@@ -16,7 +16,7 @@ This is the repo for the Flatiron School Mod 5 Project. Clarity Money Clone is a
 - mortgage calculator
 ![](mortgage_calculator.png)
 - retirement calculator
-![](retirement_calculator.png)
+![](retirement_calculator_png.png)
 - search transactions by name or category
 ![](search.gif)
 
